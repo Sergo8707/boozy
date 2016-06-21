@@ -1,21 +1,24 @@
-
-# Письма о событиях
 class EventMailer < ApplicationMailer
 
-  # Письмо о новой подписке для автора события
-  def subscription(event, subscription)
-    @email = subscription.user_email
-    @name = subscription.user_name
-    @event = event
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.event_mailer.subscription.subject
+  #
+  def subscription
+    @greeting = "Hi"
 
-    mail to: event.user.email, subject: "Новая подписка на #{event.title}"
+    mail to: "to@example.org"
   end
 
-  # Письмо о новом комментарии на заданный email
-  def comment(event, comment, email)
-    @comment = comment
-    @event = event
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.event_mailer.comment.subject
+  #
+  def comment
+    @greeting = "Hi"
 
-    mail to: email, subject: "Новый комментарий @ #{event.title}"
+    mail to: "to@example.org"
   end
 end

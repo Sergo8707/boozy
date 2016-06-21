@@ -1,9 +1,4 @@
-
-# Базовый класс для всех мэйлеров приложения
 class ApplicationMailer < ActionMailer::Base
-  # обратный адрес всех писем по умолчанию
-  default from: "megabbq@goodprogrammer.ru"
-
-  # Задаем макет для всех писем
+  default from: "from@example.com"
   layout 'mailer'
 end

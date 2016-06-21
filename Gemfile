@@ -6,7 +6,7 @@ gem 'rails', '~> 4.2.6'
 gem 'devise', '~> 4.1.1'
 
 # гем для перевода сообщений девайса
-gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 # гем с русскими форматами (времени и пр.)
 gem 'russian'
