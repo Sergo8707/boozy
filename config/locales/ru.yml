@@ -22,6 +22,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Пинкод доступа'
       comment:
         user_name: 'Ваше имя'
         body: 'Комментарий'
@@ -37,6 +38,7 @@ ru:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
+      wrong_pincode: 'Неверный пинкод!'
     users:
       updated: 'Вы обновили свой профиль'
     comments:
@@ -56,7 +58,7 @@ ru:
   # Перевод названия приложения и компании-разработчика
   app:
     name: 'Шашлыки'
-    company: 'Хороший программист'
+    company: 'Sergey Drach'
 
   comments:
     comment:
@@ -81,3 +83,7 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
+  photos:
+    photo:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту фотографию?'

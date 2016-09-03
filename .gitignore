@@ -16,5 +16,10 @@
 !/log/.keep
 /tmp
 .idea
+.idea/*
+
+public/uploads
+
 .DS_Store
 */.DS_Store
+public/uploads

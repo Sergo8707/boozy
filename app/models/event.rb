@@ -1,4 +1,3 @@
-
 # Модель события
 class Event < ActiveRecord::Base
   # событие всегда принадлежит юзеру
@@ -28,5 +27,9 @@ class Event < ActiveRecord::Base
   # всех подписавшихся и организатора
   def visitors
     (subscribers + [user]).uniq
+  end
+
+  def pincode_valid?(pin2check)
+    pincode == pin2check
   end
 end

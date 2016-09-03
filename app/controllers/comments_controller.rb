@@ -1,4 +1,3 @@
-
 # Контроллер вложенного ресурса комментариев
 class CommentsController < ApplicationController
   # задаем "родительский" event для коммента

@@ -1,4 +1,3 @@
-
 # Модель Подписки
 class Subscription < ActiveRecord::Base
   belongs_to :event

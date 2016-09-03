@@ -17,9 +17,7 @@
             <%# Формат при этом используется из гема russian %>
             <h3><%= l @event.datetime, format: :short %></h3>
             <h3>
-              <small>
-                <%= @event.address%>
-              </small>
+              <small><%= @event.address %></small>
             </h3>
             <p><%= @event.description %></p>
           </div>
@@ -31,7 +29,7 @@
           <% end %>
         </div>
         <div class="col-md-6">
-          <div class="event-map" id="map" data-address="<%= @event.address  %>"></div>
+          <div class="event-map" id="map" data-address="<%= @event.address %>"></div>
         </div>
       </div>
     </div>
@@ -45,7 +43,12 @@
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
 
-        <%# Рисуем форму для добавления новой фотографии %>
+        <%# Кнопка вывода формы добавления фотографии %>
+        <div class="buffer-both">
+          <%= link_to "Добавить фотку", '#', class: 'event-photo-form-link' %>
+        </div>
+
+        <%# Рисуем форму для добавления новой фотографии (которая будет скрыта) %>
         <div class="event-photo-form">
           <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
         </div>

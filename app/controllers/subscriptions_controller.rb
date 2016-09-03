@@ -1,4 +1,3 @@
-
 # Контроллер вложенного ресурса подписок
 class SubscriptionsController < ApplicationController
   # задаем "родительский" event для подписки

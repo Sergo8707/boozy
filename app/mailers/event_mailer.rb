@@ -1,5 +1,7 @@
+# Письма о событиях
 class EventMailer < ApplicationMailer
 
+  # Письмо о новой подписке для автора события
   def subscription(event, subscription)
     @email = subscription.user_email
     @name = subscription.user_name
@@ -8,11 +10,11 @@ class EventMailer < ApplicationMailer
     mail to: event.user.email, subject: "Новая подписка на #{event.title}"
   end
 
-
+  # Письмо о новом комментарии на заданный email
   def comment(event, comment, email)
     @comment = comment
     @event = event
 
-    mail to: email, subject: "Новый коментарий @ #{event.title}"
+    mail to: email, subject: "Новый комментарий @ #{event.title}"
   end
 end

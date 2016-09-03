@@ -1,4 +1,5 @@
-
+# (с) goodprogrammer.ru
+#
 # Контроллер, управляющий событиями
 class EventsController < ApplicationController
   # встроенный в девайз фильтр - посылает незалогиненного пользователя
@@ -9,6 +10,8 @@ class EventsController < ApplicationController
 
   # задаем объект @event от текущего юзера
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
+
+  before_action :password_guard!, only: [:show]
 
   # GET /events
   def index
@@ -69,11 +72,42 @@ class EventsController < ApplicationController
     @event = current_user.events.find(params[:id])
   end
 
+  # Убедитесь, что в secrets.yml задано значение для  secret_key_base
+  #
+  # production:
+  #   secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  #
+  # И оно работает (например на Хероку задана нужная переменная окружения)
+  #
+  # Тогда куки в рельсах 4 и старше по умолчанию шифруются и хранить там пинкод
+  # для данной задачи достаточно безопасно.
+  #
+  # http://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html
+  #
+  def password_guard!
+    return true if @event.pincode.blank?
+    return true if signed_in? && current_user == @event.user
+
+    # юзер на чужом событии (или не за логином)
+    # проверяем, правильно ли передал пинкод
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      # если правильно, запоминаем в куках этого юзера этот пинкод для данного события
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    end
+
+    # проверяем - верный ли в куках пинкод, если нет — ругаемся
+    unless @event.pincode_valid?(cookies.permanent["events_#{@event.id}_pincode"])
+      flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+      render 'password_form'
+    end
+  end
+
+
   def set_event
     @event = Event.find(params[:id])
   end
 
   def event_params
-    params.require(:event).permit(:title, :address, :datetime, :description)
+    params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
 end
