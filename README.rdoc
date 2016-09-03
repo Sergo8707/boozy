@@ -1,3 +1,5 @@
+https://boozy.herokuapp.com/
+
 приложение — организатор событий на rails 4.2
 Рассчитано на работу с Heroku.
 
