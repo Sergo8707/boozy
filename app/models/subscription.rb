@@ -39,7 +39,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def email_exists
-    if User.find_or_create_by(email: user_email)
+    if User.where(email: user_email).present?
       errors.add(:base, 'Юзер с таким email уже зарегистрирован')
     end
   end

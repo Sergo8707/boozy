@@ -70,6 +70,10 @@ class EventsController < ApplicationController
     @event = current_user.events.find(params[:id])
   end
 
+  def set_current_user_event?
+    @event = current_user.events.find(params[:id])
+  end
+
   # Убедитесь, что в secrets.yml задано значение для  secret_key_base
   #
   # production:

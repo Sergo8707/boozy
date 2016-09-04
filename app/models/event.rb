@@ -29,7 +29,4 @@ class Event < ActiveRecord::Base
     (subscribers + [user]).uniq
   end
 
-  def pincode_valid?(pin2check)
-    pincode == pin2check
-  end
 end
