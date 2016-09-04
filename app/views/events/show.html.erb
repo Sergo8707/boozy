@@ -5,8 +5,8 @@
     <div class="col-md-12">
       <%# Выводим произвольную фотку в качестве фона для шапки события %>
       <%= content_tag 'div', '',
-        class: 'event-background',
-        style: "background-image: url(#{event_photo(@event)})"
+                      class: 'event-background',
+                      style: "background-image: url(#{event_photo(@event)})"
       %>
 
       <div class="event-info-inner row">
@@ -23,9 +23,13 @@
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
-              <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
-            </div>
+              <div class="buffer-top">
+                <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
+              </div>
+              <div class="buffer-top">
+                <%= link_to 'Удалить', event_path(@event), method: :delete, class: 'btn btn-sm btn-danger',
+                            data: {confirm: "Вы уверены?"} %>
+              </div>
           <% end %>
         </div>
         <div class="col-md-6">

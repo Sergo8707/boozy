@@ -1,5 +1,3 @@
-# (с) goodprogrammer.ru
-#
 # Контроллер, управляющий событиями
 class EventsController < ApplicationController
   # встроенный в девайз фильтр - посылает незалогиненного пользователя
