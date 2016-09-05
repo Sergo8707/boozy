@@ -16,7 +16,7 @@ class EventMailer < ApplicationMailer
   end
 
 
-  def photos(event, photo, email)
+  def photo(event, photo, email)
     @photo = photo
     @event = event
 
