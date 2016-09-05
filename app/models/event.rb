@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
 
   # у события много фотографий
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   # у события много подписчиков (объекты User), через таблицу subscriptions, по ключу user_id
   has_many :subscribers, through: :subscriptions, source: :user
