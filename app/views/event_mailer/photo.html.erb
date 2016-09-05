@@ -1,7 +1,9 @@
 <h1>Новая фоточка</h1>
 ----
 
-<img src="<%= @event.photos(@new_photo) %>" alt="new photo">
+<img src="<%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: {
+    toggle: 'lightbox', title: image_title, gallery: 'event-photos'
+} %>" alt="new photo">
 
 
 ----------------------

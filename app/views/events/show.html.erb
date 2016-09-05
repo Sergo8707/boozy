@@ -91,6 +91,8 @@
               <%= render partial: 'subscriptions/form', locals: {subscription: @new_subscription || @event.subscriptions.build} %>
             </div>
         <% end %>
+<%= image_tag @photo.photo.thumb %>
+
       </div>
     </div>
   </div>
