@@ -1,9 +1,5 @@
 <h1><%= t '.title' %></h1>
-<p>  <%= @photo.photo %></p>
-<p>  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: {
-    toggle: 'lightbox', title: image_title, gallery: 'event-photos'
-} %></p>
-
+<p>  <%= @event.photos(@new_photo) %></p>
 
 <%= t '.event' %>
 <h3>

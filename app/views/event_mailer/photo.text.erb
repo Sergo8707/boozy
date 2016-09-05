@@ -1,9 +1,7 @@
 <%= t '.title' %>
 ----
 
-<%= @photo.photo %>
-
-<%= t '.author' %>: <%= @photo.user_name %>
+<%= t '.author' %>: <%= @event.photos(@new_photo) %>
 
 --------------------------------
 <%= t '.event' %>: <%= @event.title %>
