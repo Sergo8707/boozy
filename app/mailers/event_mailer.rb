@@ -12,7 +12,7 @@ class EventMailer < ApplicationMailer
     @comment = comment
     @event = event
 
-    mail to: email.user.email, subject: "Новый клмментарий @ #{event.title}"
+    mail to: email, subject: "Новый клмментарий @ #{event.title}"
   end
 
 
