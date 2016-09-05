@@ -1,13 +1,11 @@
-<h1><%= t '.title' %></h1>
-<p>  <%= @event.photos(@new_photo) %></p>
+<h1>Новая фоточка</h1>
+----
 
-<%= t '.event' %>
-<h3>
-  <%= @event.title %>
-</h3>
+<img src="<%= @event.photos(@new_photo) %>" alt="new photo">
 
-<%= t '.datetime' %>
-<h4><%= l @event.datetime %></h4>
 
-<%= t '.owner' %>
-<h4> <%= @event.user.name %></h4>
+----------------------
+
+<h3>Событие: <%= @event.title %></h3>
+<h4>Состоится: <%= l @event.datetime %></h4>
+<h4>Организатор: <%= @event.user.name %></h4>
