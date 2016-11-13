@@ -9,7 +9,7 @@
 
 Учит также основам работы с локализацией и YML файлами.
 ## Демо
-[Open](https://boozy.herokuapp.com/)
+[Open](https://boozy-go.herokuapp.com/)
 ## Установка
 Для разворачивания своей копии клонируйте git репозиторий (зеленая кнопочка в правом верхнем углу на гитхабе), командой `git clone`, залейте на свое приложение на Heroku (или создайте новое `heroku create`). Также поправьте урл сайта в `production.rb`. Обязательно пропишите миграции на heroku командой `heroku run bundle exec rake db:migrate`.
 
